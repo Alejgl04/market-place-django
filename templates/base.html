@@ -1,0 +1,24 @@
+{% load tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% tailwind_css %}
+    <script src="//unpkg.com/alpinejs" defer></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+  </head>
+  <body>
+    {% block navbar %}  {% endblock navbar %}
+
+    {% include 'messages.html' %}
+    
+    {% block content %}  {% endblock content %}
+    
+    {% block footer %}  {% endblock footer %}
+
+    {% block javascript %}{% endblock javascript %}
+
+  </body>
+</html>
