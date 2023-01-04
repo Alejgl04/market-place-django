@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'accounts'
 
 ]
 
@@ -56,6 +57,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_LOGOUT_ON_GET = True
+AUTH_USER_MODEL="accounts.User"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
