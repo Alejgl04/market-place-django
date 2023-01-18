@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+{% include 'components/navbar.html' %}
+{% endblock navbar %}
+
+{% block content %}
+
+<div class="flex flex-col">
+  <div class="overflow-x-auto ">
+    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full">
+          <thead class="border-b">
+            <tr>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Thumbnail
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Name
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Price
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Status
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            {% for product in products  %}              
+              <tr class="border-b">
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  {% if product.thumbnail %}
+                    <div class="flex-shrink-0">  
+                      <a href="#">
+                        <img class="h-20 w-full object-cover" src="{{ product.thumbnail.url }}" alt="{{ product.name }}">  
+                      </a>
+                    </div>
+                  {% endif %}
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  {{ product.name }}
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  $ {{ product.price_display }}
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  {% if product.active %}
+                    <span class="inline-flex items-center text-xs px-2.5 py-0.5 font-medium bg-green-100">Published</span>
+                  {% else %}
+                    <span class="inline-flex items-center text-xs px-2.5 py-0.5 font-medium bg-gray-100">Draft</span>
+
+                  {% endif %}
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  Edit
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+
+{% block footer %}
+
+{% endblock footer %}
+
+
+{% block javascript %}
+
+{% endblock javascript %}

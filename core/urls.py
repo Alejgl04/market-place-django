@@ -4,7 +4,7 @@ from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
 from django.urls.conf import include
-from .views import HomeView
+from .views import HomeView, UserProductListView
 
 urlpatterns = [
   path('admin/', admin.site.urls),
@@ -12,6 +12,7 @@ urlpatterns = [
   path('users/', include('accounts.urls', namespace='users')),
   
   path('', HomeView.as_view(), name="home"),
+  path('products/', UserProductListView.as_view(), name="product-list"),
   
   path('marketplace/', include('marketplace.urls', namespace='marketplace')),
   
