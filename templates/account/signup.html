@@ -19,23 +19,28 @@
       <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign up to your account</h2>
     </div>
     <form class="mt-8 space-y-6 signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+      {% if form.errors %}
+        <div class="bg-red-600 px-2.5 py-2.5 text-white">
+            {{form.errors}}
+        </div>
+      {% endif %}
       {% csrf_token %}
       <div class="-space-y-px rounded-md shadow-sm">
         <div>
-          <label for="email-address" class="sr-only">Username</label>
-          <input id="email-address" name="username" type="username" autocomplete="username" required id="id_username" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 mt-4 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Username">
+          <label for="id_username" class="sr-only">Username</label>
+          <input name="username" type="username" autocomplete="username" required id="id_username" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 mt-4 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Username">
         </div>
         <div>
-          <label for="email-address" class="sr-only">Email address</label>
-          <input id="email-address" name="email" type="email" autocomplete="email" required id="id_email" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 mt-4 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Email address">
+          <label for="id_email" class="sr-only">Email address</label>
+          <input name="email" type="email" autocomplete="email" required id="id_email" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 mt-4 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Email address">
         </div>
         <div>
-          <label for="password" class="sr-only">Password</label>
-          <input id="password" name="password1" type="password" autocomplete="current-password" required id="id_password1" class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 mt-4 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Password">
+          <label for="id_password1" class="sr-only">Password</label>
+          <input name="password1" type="password" autocomplete="current-password" required id="id_password1" class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 mt-4 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Password">
         </div>
         <div>
-          <label for="password2" class="sr-only">Password (again)</label>
-          <input id="password2" name="password2" type="password" autocomplete="current-password2" required id="id_password2" class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 mt-4 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Password (again)">
+          <label for="id_password2" class="sr-only">Password (again)</label>
+          <input name="password2" type="password" autocomplete="current-password2" required id="id_password2" class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 mt-4 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Password (again)">
         </div>
       </div>
       {% if redirect_field_value %}
